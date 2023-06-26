@@ -41,8 +41,9 @@ jobs:
           prepare: |
             pkg install -y gmake llvm coreutils git
             git config --global --add safe.directory /Users/runner/work/btop/btop
-          build: CXX=clang++ gmake
-          post: |
+          run: |
+            set -e
+            CXX=clang++ gmake
             GIT_HASH=$(git rev-parse --short "$GITHUB_SHA")
             mv bin/btop bin/btop-$GIT_HASH
             ls -alh bin
