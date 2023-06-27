@@ -42,10 +42,10 @@ jobs:
             pkg install -y gmake llvm16 coreutils git
             git config --global --add safe.directory /Users/runner/work/btop/btop
           run: |
-            CXX=clang++16 gmake
-            GIT_HASH=$(git rev-parse --short "$GITHUB_SHA")
-            mv bin/btop bin/btop-$GIT_HASH
-            ls -alh bin
+            CXX=clang++16 gmake &&
+            GIT_HASH=$(git rev-parse --short "$GITHUB_SHA") &&
+            mv bin/btop bin/btop-$GIT_HASH &&
+            ls -alh bin &&
 
       - uses: actions/upload-artifact@v3
         with:
