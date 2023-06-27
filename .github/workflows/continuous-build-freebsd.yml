@@ -45,7 +45,7 @@ jobs:
             CXX=clang++16 gmake &&
             GIT_HASH=$(git rev-parse --short "$GITHUB_SHA") &&
             mv bin/btop bin/btop-$GIT_HASH &&
-            ls -alh bin &&
+            ls -alh bin
 
       - uses: actions/upload-artifact@v3
         with:
